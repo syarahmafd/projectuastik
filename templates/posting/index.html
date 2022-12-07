@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="container mt-3 mb-5 justify-content-center" style="width: 69rem;">
+    {% for posting in postings %}
+    <img src="{{ posting.image.url }}"  style="width:350px" class="card-img-top" alt="my image">
+    <div class="card-body">
+        <small>{{ posting.date }}</small>
+      <h5 class="card-title">{{ posting.judul }}</h5>
+      <p class="card-text">{{ posting.konten|truncatechars:199 }}</p>
+      <a href="{% url 'detail' posting.id %}" class="btn btn-primary">More</a>
+    </div>
+    {% endfor %}
+  </div>
+{% endblock %}
+    
